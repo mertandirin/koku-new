@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KOKU - Halil Sezai | Biletler Satışta</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-red: #8B0000;
+            --dark-bg: #050505;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--dark-bg);
+            color: #f3f4f6;
+        }
+        .font-cinzel { font-family: 'Cinzel', serif; }
+        
+        /* Özel Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #111; }
+        ::-webkit-scrollbar-thumb { background: var(--primary-red); border-radius: 4px; }
+
+        /* GÜNCELLENEN GRADYAN: Arka plan metinlerini temizlemek için daha koyu başlangıç */
+        .red-gradient-overlay {
+            background: linear-gradient(to right, 
+                rgba(5,5,5,1) 0%, 
+                rgba(5,5,5,0.95) 25%, 
+                rgba(5,5,5,0.7) 60%, 
+                rgba(5,5,5,0.4) 100%);
+        }
+
+        .ticket-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px -10px rgba(139,0,0,0.6);
+        }
+        
+        .hero-title {
+            text-shadow: 0 0 40px rgba(139,0,0,0.9);
+            letter-spacing: -0.05em;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-scroll {
+            animation: scroll 40s linear infinite;
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+
+    <!-- Navigasyon -->
+    <header class="fixed w-full z-50 bg-black/90 backdrop-blur-lg border-b border-white/5">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-red-700 rounded-full flex items-center justify-center animate-pulse">
+                    <span class="text-xs font-bold text-white uppercase">K</span>
+                </div>
+                <span class="text-xl font-bold tracking-[0.2em] uppercase">Sanart <span class="text-red-600">Yapım</span></span>
+            </div>
+            <nav class="hidden md:flex space-x-8 text-sm font-medium uppercase tracking-widest opacity-80">
+                <a href="#hikaye" class="hover:text-red-500 transition">Hikaye</a>
+                <a href="#galeri" class="hover:text-red-500 transition">Galeri</a>
+                <a href="#takvim" class="hover:text-red-500 transition text-red-500 underline underline-offset-8">Bilet Al</a>
+            </nav>
+            <a href="#takvim" class="bg-red-700 hover:bg-red-600 px-6 py-2 rounded-full text-xs font-bold transition-all shadow-lg shadow-red-900/20 uppercase tracking-widest text-white">
+                BİLET AL
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Bölümü (DÜZENLENDİ) -->
+    <section class="relative min-h-screen flex items-center pt-20">
+        <div class="absolute inset-0 z-0 overflow-hidden">
+            <!-- Overlay daha güçlü hale getirildi -->
+            <div class="absolute inset-0 red-gradient-overlay z-10"></div>
+            <!-- object-position değiştirildi, opacity ayarlandı -->
+            <img src="https://wp.oggusto.com/wp-content/uploads/2025/11/koku-halil-sezai.jpg" 
+                 alt="Koku Halil Sezai Hero" 
+                 class="w-full h-full object-cover object-right grayscale opacity-50 transform scale-105">
+        </div>
+
+        <div class="container mx-auto px-6 relative z-20">
+            <div class="max-w-3xl">
+                <div class="inline-flex items-center gap-3 mb-8">
+                    <span class="px-4 py-1 bg-red-700 text-[10px] font-bold tracking-[0.4em] uppercase rounded text-white shadow-xl">Yeni Sezon</span>
+                    <span class="text-red-600 text-[10px] font-bold tracking-[0.4em] uppercase">Biletler Satışta</span>
+                </div>
+                <h1 class="font-cinzel text-7xl md:text-[11rem] mb-6 leading-none hero-title text-white">
+                    KOKU
+                </h1>
+                <div class="relative mb-12">
+                    <div class="absolute left-0 top-0 w-1 h-full bg-red-700"></div>
+                    <p class="text-xl md:text-3xl text-gray-200 font-light pl-8 max-w-xl leading-snug">
+                        Halil Sezai'nin sahnede adeta bir ayine dönüştürdüğü tek kişilik devleşen performansı.
+                    </p>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-5 items-center">
+                    <a href="#takvim" class="group flex items-center justify-center bg-red-700 hover:bg-red-600 text-white px-14 py-6 rounded-sm transition-all transform hover:scale-105 shadow-2xl shadow-red-900/40 w-full sm:w-auto">
+                        <span class="font-bold uppercase tracking-widest text-lg italic">HEMEN BİLET AL</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-3 group-hover:translate-x-2 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                    </a>
+                </div>
+                <div class="mt-20 flex items-center gap-10 border-t border-white/10 pt-8 w-max opacity-80">
+                    <div class="flex flex-col">
+                        <span class="text-[9px] uppercase tracking-[0.3em] text-red-600 font-bold mb-1">Yazar</span>
+                        <span class="text-sm font-bold uppercase text-white">Tamer Turan</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-[9px] uppercase tracking-[0.3em] text-red-600 font-bold mb-1">Yönetmen</span>
+                        <span class="text-sm font-bold uppercase text-white">Hakkı Kuş</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Oyun Hakkında -->
+    <section id="hikaye" class="py-24 bg-zinc-950 border-y border-white/5 relative overflow-hidden">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="relative group">
+                    <div class="absolute -inset-4 bg-red-700 opacity-10 blur-3xl group-hover:opacity-20 transition"></div>
+                    <div class="relative rounded-lg overflow-hidden border border-white/10 shadow-2xl">
+                        <img src="https://www.kitaptansanattan.com/wp-content/uploads/2025/12/halil-sezai-koku-oyunu-4.jpg" alt="Halil Sezai Koku Sahne" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700 transform group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                        <div class="absolute bottom-6 left-6">
+                            <span class="text-xs font-bold text-red-600 tracking-widest uppercase">Sahne Performansı</span>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h2 class="font-cinzel text-5xl mb-8 text-white leading-tight underline decoration-red-700 decoration-4 underline-offset-8 italic">BELLEĞİN DERİN SESSİZLİĞİ</h2>
+                    <p class="text-gray-400 leading-relaxed text-xl mb-10">
+                        "KOKU", sadece bir tiyatro oyunu değil; kokuların tetiklediği hatıraların, pişmanlıkların ve bir adamın kendi iç dünyasındaki kuklalarıyla hesaplaşmasının hikayesidir. Sahne tasarımı ve Halil Sezai'nin eşsiz yorumuyla bu sezonun en çok konuşulan yapımı.
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 border-t border-white/10 pt-10">
+                        <div class="flex items-start gap-4">
+                            <div class="w-1 bg-red-700 h-full"></div>
+                            <div>
+                                <h4 class="text-white font-bold mb-2 uppercase text-xs tracking-widest">Görsel Tasarım</h4>
+                                <p class="text-xs text-gray-500">Barbaros Şansal'ın dokunuşlarıyla hazırlanan kostümler.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-1 bg-red-700 h-full"></div>
+                            <div>
+                                <h4 class="text-white font-bold mb-2 uppercase text-xs tracking-widest">Ödüllü Reji</h4>
+                                <p class="text-xs text-gray-500">Eleştirmenlerden tam not alan sahneleme tekniği.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Takvim / Satış -->
+    <section id="takvim" class="py-24 bg-black relative">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-16">
+                <span class="text-red-700 text-xs font-bold tracking-[0.6em] uppercase mb-4 block">Türkiye Turnesi</span>
+                <h2 class="font-cinzel text-6xl uppercase tracking-widest mb-4 text-white">BİLET <span class="text-red-700">SATIN AL</span></h2>
+                <p class="text-zinc-500 text-sm tracking-widest">Sınırlı sayıda koltuk için yerinizi hemen ayırtın.</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto space-y-6">
+                <!-- Şehir Kartı -->
+                <div class="ticket-card bg-zinc-900/40 border border-white/5 p-8 md:p-12 flex flex-col md:flex-row items-center justify-between rounded-sm transition-all group backdrop-blur-sm">
+                    <div class="text-center md:text-left mb-8 md:mb-0">
+                        <div class="text-sm text-red-600 font-bold tracking-widest uppercase mb-2">MART 2026</div>
+                        <div class="text-4xl font-cinzel tracking-tighter text-white">İSTANBUL</div>
+                        <div class="text-gray-400 mt-3 text-sm flex items-center justify-center md:justify-start">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 text-red-700" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                            SES TİYATROSU - 20:30
+                        </div>
+                    </div>
+                    <div class="flex flex-col items-center gap-4">
+                        <span class="text-[10px] text-red-500 font-bold uppercase tracking-[0.3em] animate-pulse">Son 12 Koltuk</span>
+                        <button class="bg-white text-black hover:bg-red-700 hover:text-white px-12 py-4 font-bold uppercase tracking-widest transition-all w-full md:w-auto text-sm">BİLET AL</button>
+                    </div>
+                </div>
+
+                <!-- Şehir Kartı -->
+                <div class="ticket-card bg-zinc-900/40 border border-white/5 p-8 md:p-12 flex flex-col md:flex-row items-center justify-between rounded-sm transition-all group backdrop-blur-sm">
+                    <div class="text-center md:text-left mb-8 md:mb-0">
+                        <div class="text-sm text-red-600 font-bold tracking-widest uppercase mb-2">MART 2026</div>
+                        <div class="text-4xl font-cinzel tracking-tighter text-white text-opacity-50">ANKARA</div>
+                        <div class="text-gray-400 mt-3 text-sm flex items-center justify-center md:justify-start">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                            MEB ŞURA SALONU
+                        </div>
+                    </div>
+                    <div class="flex flex-col items-center gap-4">
+                        <span class="text-[10px] text-zinc-600 uppercase tracking-[0.3em]">Tükendi</span>
+                        <button disabled class="bg-zinc-800 text-zinc-500 px-12 py-4 font-bold uppercase tracking-widest w-full md:w-auto text-sm cursor-not-allowed">KAPALI GİŞE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeri (Sonsuz Kaydırma) -->
+    <section id="galeri" class="py-24 bg-zinc-950 border-y border-white/5">
+        <div class="container mx-auto px-6 mb-12">
+            <h3 class="font-cinzel text-3xl uppercase tracking-widest text-center">SAHNEDEN <span class="text-red-700">ANLAR</span></h3>
+        </div>
+        <div class="flex gap-4 animate-scroll whitespace-nowrap">
+            <!-- Görsel 1: Poster -->
+            <div class="min-w-[400px] h-[550px] bg-zinc-900 overflow-hidden rounded-sm border border-white/5 group relative">
+                <img src="https://tiyatrolar.com.tr/files/activity/k/koku/image/koku.jpg" alt="Koku Poster" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700">
+                <div class="absolute inset-0 bg-red-900/20 opacity-0 group-hover:opacity-100 transition pointer-events-none"></div>
+            </div>
+            <!-- Görsel 2: Eskişehir Performansı -->
+            <div class="min-w-[400px] h-[550px] bg-zinc-900 overflow-hidden rounded-sm border border-white/5 group">
+                <img src="https://eskisehirnet.teimg.com/eskisehir-net/uploads/2026/01/halil-sezai-eskisehirde-ayakta-alkislandi.jpeg" alt="Halil Sezai Eskişehir Başarı" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700">
+            </div>
+            <!-- Görsel 3: Sahne I -->
+            <div class="min-w-[400px] h-[550px] bg-zinc-900 overflow-hidden rounded-sm border border-white/5 group">
+                <img src="https://wp.oggusto.com/wp-content/uploads/2025/11/koku-halil-sezai.jpg" alt="Sahne Detay" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700">
+            </div>
+            <!-- Görsel 4: Sahne II -->
+            <div class="min-w-[400px] h-[550px] bg-zinc-900 overflow-hidden rounded-sm border border-white/5 group">
+                <img src="https://www.kitaptansanattan.com/wp-content/uploads/2025/12/halil-sezai-koku-oyunu-4.jpg" alt="Halil Sezai Koku Oyun" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700">
+            </div>
+            <!-- Döngü için Tekrar -->
+            <div class="min-w-[400px] h-[550px] bg-zinc-900 overflow-hidden rounded-sm border border-white/5 group">
+                <img src="https://tiyatrolar.com.tr/files/activity/k/koku/image/koku.jpg" alt="Poster" class="w-full h-full object-cover grayscale opacity-50">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-24 border-t border-white/5">
+        <div class="container mx-auto px-6 text-center md:text-left">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-16">
+                <div class="max-w-md">
+                    <h3 class="font-cinzel text-3xl mb-6 text-white tracking-widest leading-none uppercase">Sanart <span class="text-red-700 block text-xs mt-2 tracking-[0.6em] font-bold">Yapım & Organizasyon</span></h3>
+                    <p class="text-zinc-500 text-sm leading-relaxed mb-8">
+                        Türkiye'nin her köşesine sanatı taşımak için çalışıyoruz. Halil Sezai - Koku bir Sanart prodüksiyonudur.
+                    </p>
+                </div>
+                <div class="grid grid-cols-2 gap-16 uppercase tracking-[0.2em] text-[10px] font-bold text-zinc-400">
+                    <div class="flex flex-col gap-5">
+                        <h5 class="text-white border-b border-red-700 pb-2 w-max">Kurumsal</h5>
+                        <a href="#" class="hover:text-red-500 transition">Hakkımızda</a>
+                        <a href="#" class="hover:text-red-500 transition">Turne Programı</a>
+                    </div>
+                    <div class="flex flex-col gap-5">
+                        <h5 class="text-white border-b border-red-700 pb-2 w-max">Yardım</h5>
+                        <a href="#" class="hover:text-red-500 transition">Bilet İptali</a>
+                        <a href="#" class="hover:text-red-500 transition">İletişim</a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-24 pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+                <p class="text-[10px] text-zinc-600 tracking-[0.4em] uppercase">
+                    © 2026 Sanart Yapım. Tüm Hakları Saklıdır.
+                </p>
+                <p class="text-[10px] text-zinc-700 tracking-[0.2em] uppercase">
+                    Tasarım: M.Y.A. Dijital Pazarlama
+                </p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
